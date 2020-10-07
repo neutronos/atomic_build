@@ -216,7 +216,7 @@ $(call add_json_bool, InstallExtraFlattenedApexes, $(PRODUCT_INSTALL_EXTRA_FLATT
 
 $(call add_json_bool, BoardUsesRecoveryAsBoot, $(BOARD_USES_RECOVERY_AS_BOOT))
 
-include vendor/pixys/build/soong/soong_config.mk
+include vendor/neutron/build/soong/soong_config.mk
 
 $(call json_end)
 
