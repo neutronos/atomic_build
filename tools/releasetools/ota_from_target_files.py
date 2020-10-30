@@ -822,6 +822,30 @@ else if get_stage("%(bcb_dev)s") == "3/3" then
   # Dump fingerprints
   script.Print("Target: {}".format(target_info.fingerprint))
 
+  neutron_version = target_info.GetBuildProp("ro.modversion")
+  android_version = target_info.GetBuildProp("ro.build.version.release")
+  build_id = target_info.GetBuildProp("ro.build.id")
+  security_patch = target_info.GetBuildProp("ro.build.version.security_patch")
+  device = target_info.GetBuildProp("ro.neutron.device")
+  edition = target_info.GetBuildProp("ro.neutron.edition")
+
+  script.Print("-----------------------------------------------------");
+  script.Print(" _   _            _                     _____ _____  ");
+  script.Print("| \ | |          | |                   |  _  /  ___| ");
+  script.Print("|  \| | ___ _   _| |_ _ __ ___  _ __   | | | \ `--.  ");
+  script.Print("| . ` |/ _ \ | | | __| '__/ _ \| '_ \  | | | |`--. \ ");
+  script.Print("| |\  |  __/ |_| | |_| | | (_) | | | | \ \_/ /\__/ / ");
+  script.Print("\_| \_/\___|\__,_|\__|_|  \___/|_| |_|  \___/\____/  "); 
+  script.Print("                                                     ");                                                      
+  script.Print("-----------------------------------------------------");                                                    
+  script.Print(" NeutronOS version: NeutronOS-%s"%(neutron_version));
+  script.Print(" Android version: %s"%(android_version));
+  script.Print(" Build id: %s"%(build_id));
+  script.Print(" Security patch: %s"%(security_patch));
+  script.Print(" Device: %s"%(device));
+  script.Print(" NeutronOS Edition: %s"%(edition));
+  script.Print("--------------------------------------------");
+
   device_specific.FullOTA_InstallBegin()
 
   CopyInstallTools(output_zip)
